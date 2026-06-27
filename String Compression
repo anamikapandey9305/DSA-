@@ -1,0 +1,35 @@
+class Solution {
+    public int compress(char[] chars) {
+
+        int write = 0; // compressed array me likhne ke liye
+        int i = 0;     // array traverse karne ke liye
+
+        while (i < chars.length) {
+
+            char currentChar = chars[i]; // current character
+            int count = 0;               // frequency count
+
+            // same character kitni baar aa raha hai count karo
+            while (i < chars.length && chars[i] == currentChar) {
+                count++;
+                i++;
+            }
+
+            // character likenge
+            chars[write] = currentChar;
+            write++;
+
+            // agar count 1 se bada hai to count bhi likhenge 
+            if (count > 1) {
+                String countStr = String.valueOf(count);
+
+                for (char digit : countStr.toCharArray()) {
+                    chars[write] = digit;
+                    write++;
+                }
+            }
+        }
+
+        return write;
+    }
+}

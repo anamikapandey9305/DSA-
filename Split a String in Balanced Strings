@@ -1,0 +1,29 @@
+class Solution {
+    public int balancedStringSplit(String s) {
+
+        int count = 0;      // L aur R ka balance track karenge
+        int answer = 0;     // Balanced substrings ki total count
+
+        // String ke har character par loop chalayenge
+        for (int i = 0; i < s.length(); i++) {
+
+            // Agar character 'R' hai to count badha do
+            if (s.charAt(i) == 'R') {
+                count++;
+            }
+            // Agar character 'L' hai to count ghata do
+            else {
+                count--;
+            }
+
+            // Jab count 0 ho jaye, iska matlab
+            // ab tak jitna substring bana hai wo balanced hai
+            if (count == 0) {
+                answer++;   // Ek balanced substring mil gaya
+            }
+        }
+
+        // Total balanced substrings return karenge
+        return answer;
+    }
+}

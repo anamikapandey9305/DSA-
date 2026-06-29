@@ -1,0 +1,27 @@
+class Solution {
+    public int scoreOfString(String s) {
+
+        // Initialize score variable to store final result(result store krne k liye)
+        int score = 0;
+
+        // Loop from first character to second last character
+        // because we are always comparing i and i+1
+        for(int i = 0; i < s.length() - 1; i++) {
+
+            // Get current character at index i
+            char ch1 = s.charAt(i);
+
+            // Get next character at index i+1
+            char ch2 = s.charAt(i + 1);
+
+            // Calculate absolute difference between ASCII values of ch1 and ch2
+            int diff = Math.abs(ch1 - ch2);
+
+            // Add this difference to total score
+            score += diff;
+        }
+
+        // Return final calculated score
+        return score;
+    }
+}

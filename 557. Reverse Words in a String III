@@ -1,0 +1,17 @@
+class Solution {
+    public String reverseWords(String s) {
+
+        String[] words = s.split(" ");
+        StringBuilder ans = new StringBuilder();
+
+        for (String word : words) {
+
+            // Reverse word
+            StringBuilder rev = new StringBuilder(word);
+            ans.append(rev.reverse()).append(" ");
+        }
+
+        // Remove last space
+        return ans.toString().trim();
+    }
+}

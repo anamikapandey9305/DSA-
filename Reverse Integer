@@ -1,0 +1,35 @@
+class Solution {
+    public int reverse(int x) {
+        int rev = 0;
+        while (x!=0){ // jab tak x k saare digits process na ho jae tb tk loop chlaenge
+            int digit = x%10; // to get last digit
+
+            // removing last digit
+            x = x/10;
+
+            // checking for positive overflow(10 se multiply krne pr Integer.Max_value se bada ho jaega)
+
+            if(rev> Integer.MAX_VALUE/10 ||
+            (rev==Integer.MAX_VALUE/10 && digit>7)){
+                return 0;
+            }
+
+            // Checking for negative overflow(Agar rev ko 10 se multiply karne par Integer.MIN_VALUE se chhota ho jayega)
+
+            if(rev<Integer.MIN_VALUE/10||
+            (rev==Integer.MIN_VALUE/10 && digit<-8)){
+                return 0;
+            }
+            //buliding reverse  number
+            rev= rev*10+digit;  
+        }
+        return rev;
+        
+    }
+}
+
+//1. Last digit nikalna --- %10 s elast digit mil jata (123%10) = 3
+
+// 2. Last digit remove krna -- /10 (123/10)= 12
+// 3. Checking the overflow --Reverse banane se pehle check karna zaroori hai ki kahin int range se bahar na chala jaye.
+// 4. rev = rev * 10 + digit; reverse banana.

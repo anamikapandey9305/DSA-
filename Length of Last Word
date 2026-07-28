@@ -1,0 +1,19 @@
+class Solution {
+    public int lengthOfLastWord(String s) {
+        int i = s.length() - 1; // points to last space
+        int count = 0; // variable to store length of the last word
+
+        // Skip trailing spaces
+        while (i >= 0 && s.charAt(i) == ' ') {
+            i--; // move i left
+        }
+
+        // Count characters of the last word
+        while (i >= 0 && s.charAt(i) != ' ') {
+            count++;
+            i--;
+        }
+
+        return count;
+    }
+}

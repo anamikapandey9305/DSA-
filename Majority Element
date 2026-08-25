@@ -1,0 +1,34 @@
+class Solution {
+    public int majorityElement(int[] nums) {
+
+        // Stores the current possible majority element
+        int candidate = 0;
+
+        // Keeps track of the candidate's votes
+        int count = 0;
+
+        // Go through every number in the array
+        for (int num : nums) {
+
+            // If count becomes 0, choose the current number
+            // as the new candidate
+            if (count == 0) {
+                candidate = num;
+            }
+
+            // If current number is same as candidate,
+            // increase the count
+            if (num == candidate) {
+                count++;
+            } 
+            // If current number is different,
+            // decrease the count
+            else {
+                count--;
+            }
+        }
+
+        // The majority element will be the final candidate
+        return candidate;
+    }
+}

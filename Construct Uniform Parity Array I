@@ -1,0 +1,25 @@
+class Solution {
+    public boolean solve(int[] nums1) {
+
+        // If all numbers are even,
+        // we can keep them as they are.
+        // So the result will contain all even numbers.
+
+        // If all numbers are odd,
+        // we can keep them as they are.
+        // So the result will contain all odd numbers.
+
+        // If the array contains both odd and even numbers,
+        // we can subtract an odd number from every even number
+        // to make those results odd.
+        //
+        // Example:
+        // 2 - 7 = -5 (odd)
+        // 4 - 7 = -3 (odd)
+        // 7 = 7 (odd)
+
+        // Therefore, according to the given conditions,
+        // it is always possible.
+        return true;
+    }
+}

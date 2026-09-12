@@ -1,0 +1,24 @@
+Given two integers a and b, return the sum of the two integers without using the operators + and -.
+
+ class Solution {
+    public int getSum(int a, int b) {
+
+        // Jab tak carry hai, tab tak calculation continue karo
+        while (b != 0) {
+
+            // Carry find kar rahe hain
+            // & common 1 bits find karta hai
+            // << 1 carry ko next position par shift karta hai
+            int carry = (a & b) << 1;
+
+            // XOR se addition karte hain without carry
+            a = a ^ b;
+
+            // Carry ko b mein store kar rahe hain
+            b = carry;
+        }
+
+        // Jab carry 0 ho jaye, a mein final sum hota hai
+        return a;
+    }
+}
